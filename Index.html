@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beats Player</title>
+    <style>
+        /* Set background color */
+        body {
+            background-color: #0A0A0A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins Medium', sans-serif; /* Apply Poppins Medium font to the whole document */
+        }
+
+        /* Define the @font-face rule to specify the custom font */
+        @font-face {
+            font-family: 'Poppins Medium';
+            src: url('Poppins-Medium.ttf') format('truetype'); /* Path to the font file */
+            font-weight: 500; /* Medium font weight */
+            font-style: normal; /* Normal font style */
+        }
+
+        @font-face {
+            font-family: 'Poppins Regular';
+            src: url('Poppins-Regular.ttf') format('truetype'); /* Path to the font file */
+            font-weight: normal; /* Normal font weight */
+            font-style: normal; /* Normal font style */
+        }
+
+        /* Style for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 600px; /* Adjust maximum width as needed */
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style for the close button */
+        .close {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Set box color */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Adjusted to accommodate three boxes */
+            gap: 10px;
+            justify-items: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+            width: 55%; /* Adjust the width as needed */
+            margin: auto; /* Center the grid container */
+        }
+
+        .card {
+            background-color: #ffffff00;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            max-width: 300px;
+            width: 100%;
+            overflow: hidden;
+            color: red; /* Apply text color */
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Hide video overlay by default */
+        .video-overlay {
+            display: none;
+        }
+
+        /* Media queries for mobile devices */
+        @media screen and (max-width: 600px) {
+            .grid-container {
+                width: 90%;
+            }
+
+            .modal-content {
+                width: 90%;
+                padding: 10px;
+            }
+        }
+
+        /* Style for the video container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 177.78%; /* 16:9 Aspect Ratio (9 / 16 * 100) */
+            overflow: hidden;
+        }
+
+        /* Style for the iframe video */
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Grid layout for the cards -->
+<div class="grid-container">
+    <!-- Card 1 -->
+    <div class="card" onclick="openModal('https://www.youtube.com/embed/N6hqgyIRqL8?si=BjIAl74DbuDOnuNc')">
+        <img src="image1.jpg" alt="Beat Image">
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" onclick="openModal('https://www.youtube.com/embed/CLqwjKCoPSg?si=A2XVBgOZQWPPwToU')">
+        <img src="image2.jpg" alt="Beat Image">
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" onclick="openModal('https://www.youtube.com/embed/CLqwjKCoPSg?si=A2XVBgOZQWPPwToU')">
+        <img src="image3.jpg" alt="Beat Image">
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="video-container">
+            <iframe id="videoFrame" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(embedUrl) {
+        var modal = document.getElementById("myModal");
+        var videoFrame = document.getElementById("videoFrame");
+        videoFrame.src = embedUrl;
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        var videoFrame = document.getElementById("videoFrame");
+        videoFrame.src = "";
+        modal.style.display = "none";
+    }
+
+    // Close the modal when clicking outside of it
+    window.onclick = function(event) {
+        var modal = document.getElementById("myModal");
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+
+</body>
+</html>
