@@ -10,7 +10,7 @@
             background-color: #0A0A0A;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Align items to the top */
             height: 100vh;
             margin: 0;
             font-family: 'Poppins Medium', sans-serif; /* Apply Poppins Medium font to the whole document */
@@ -79,9 +79,10 @@
             grid-template-columns: repeat(3, 1fr); /* Adjusted to accommodate three boxes */
             gap: 10px;
             justify-items: center; /* Center items horizontally */
-            align-items: center; /* Center items vertically */
+            align-items: flex-start; /* Align items to the top */
             width: 55%; /* Adjust the width as needed */
             margin: auto; /* Center the grid container */
+            margin-top: 20px; /* Add margin to push grid closer to the top */
         }
 
         .card {
@@ -110,18 +111,6 @@
         /* Hide video overlay by default */
         .video-overlay {
             display: none;
-        }
-
-        /* Media queries for mobile devices */
-        @media screen and (max-width: 600px) {
-            .grid-container {
-                width: 90%;
-            }
-
-            .modal-content {
-                width: 90%;
-                padding: 10px;
-            }
         }
 
         /* Style for the video container */
