@@ -5,34 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beats Player</title>
     <style>
-        /* Set background color */
         body {
-            background-color: #131313;
+            background-color: #0A0A0A;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align items to the top */
+            align-items: flex-start;
             height: 100vh;
             margin: 0;
-            font-family: 'Poppins Medium', sans-serif; /* Apply Poppins Medium font to the whole document */
-            color: white; /* Set text color to white */
+            font-family: 'Poppins Medium', sans-serif;
+            color: white;
         }
 
-        /* Define the @font-face rule to specify the custom font */
         @font-face {
             font-family: 'Poppins Medium';
-            src: url('Poppins-Medium.ttf') format('truetype'); /* Path to the font file */
-            font-weight: 500; /* Medium font weight */
-            font-style: normal; /* Normal font style */
+            src: url('Poppins-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
         }
 
         @font-face {
             font-family: 'Poppins Regular';
-            src: url('Poppins-Regular.ttf') format('truetype'); /* Path to the font file */
-            font-weight: normal; /* Normal font weight */
-            font-style: normal; /* Normal font style */
+            src: url('Poppins-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
         }
 
-        /* Style for the modal */
         .modal {
             display: none;
             position: fixed;
@@ -42,23 +39,22 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0); /* Transparent background */
+            background-color: rgba(0,0,0,0);
         }
 
         .modal-content {
             margin: auto;
             display: block;
-            width: 75%; /* Adjusted to take up 75% of the screen */
-            max-width: 600px; /* Adjust maximum width as needed */
+            width: 75%;
+            max-width: 600px;
             padding: 20px;
             border-radius: 10px;
             background-color: #ffffff00;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* Style for the close button */
         .close {
-            color: white; /* Set close button color to white */
+            color: white;
             position: absolute;
             top: 10px;
             right: 20px;
@@ -74,16 +70,15 @@
             text-decoration: none;
         }
 
-        /* Set box color */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Adjusted to accommodate three boxes */
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            justify-items: center; /* Center items horizontally */
-            align-items: flex-start; /* Align items to the top */
-            width: 100%; /* Adjust the width as needed */
-            margin: auto; /* Center the grid container */
-            margin-top: 20px; /* Add margin to push grid closer to the top */
+            justify-items: center;
+            align-items: flex-start;
+            width: 100%;
+            margin: auto;
+            margin-top: 20px;
         }
 
         .card {
@@ -95,7 +90,7 @@
             max-width: 500px;
             width: 100%;
             overflow: hidden;
-            color: white; /* Apply text color */
+            color: white;
         }
 
         .card img {
@@ -109,20 +104,17 @@
             transform: scale(1.1);
         }
 
-        /* Hide video overlay by default */
         .video-overlay {
             display: none;
         }
 
-        /* Style for the video container */
         .video-container {
             position: relative;
             width: 100%;
-            padding-top: 133.33%; /* 16:9 Aspect Ratio (9 / 16 * 100) */
+            padding-top: 133.33%;
             overflow: hidden;
         }
 
-        /* Style for the iframe video */
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -131,7 +123,6 @@
             height: 100%;
         }
 
-        /* Style for the text below the images */
         .card-text {
             margin-top: 10px;
             font-size: 10px;
@@ -140,84 +131,95 @@
         }
 
         .card-text.bpm {
-            color: rgb(255, 255, 255);
+            color: rgb(66, 66, 66);
             font-family: 'Poppins Regular', sans-serif;
-            margin-left: 7px; /* Adjust the margin as needed */
+            margin-left: 7px;
         }
 
         .card-text.price {
-            color: red; /* Set price text color to red */
+            color: red;
         }
     </style>
 </head>
 <body>
 
-<!-- Grid layout for the cards -->
-<div class="grid-container">
-    <!-- Card 1 -->
-    <div class="card" onclick="openModal('https://www.youtube.com/embed/9XdfXYwkTJc?si=kFwpvmjNMEmVWYBU')">
-        <img src="image1.jpg" alt="Beat Image">
-        <div class="text-container">
-            <div class="card-text">Lil Durk X Nardo Wick Dark Trap Type Beat</div>
-            <div class="card-text bpm">80bpm</div>
-            <div class="card-text price">$49.99</div> <!-- Price text -->
+    <div class="grid-container">
+        <!-- Card 1 -->
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/9XdfXYwkTJc?si=7l04uK3cplGnKr1N')">
+            <img id="thumb1" alt="Beat Image">
+            <div class="text-container">
+                <div class="card-text">Lil Durk X Nardo Wick Dark Trap Type Beat</div>
+                <div class="card-text bpm">80bpm</div>
+                <div class="card-text price">$49.99</div>
+            </div>
+        </div>
+    
+        <!-- Card 2 -->
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/4KVI8QbJfb0?si=Mvb7Y6OHiCzWu_jL')">
+            <img id="thumb2" alt="Beat Image">
+            <div class="text-container">
+                <div class="card-text">Travis Scott Astro World Type Beat</div>
+                <div class="card-text bpm">80bpm</div>
+                <div class="card-text price">$49.99</div>
+            </div>
+        </div>
+    
+        <!-- Card 3 -->
+        <div class="card" onclick="openModal('https://www.youtube.com/embed/4KVI8QbJfb0?si=Mvb7Y6OHiCzWu_jL')">
+            <img id="thumb3" alt="Beat Image">
+            <div class="text-container">
+                <div class="card-text">Kanye West x Ty Dolla $ign Vultures Type Beat</div>
+                <div class="card-text bpm">80bpm</div>
+                <div class="card-text price">$49.99</div>
+            </div>
         </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="card" onclick="openModal('https://www.youtube.com/embed/4KVI8QbJfb0?si=uoKa_tS1FdFXM-OS')">
-        <img src="image2.jpg" alt="Beat Image">
-        <div class="text-container">
-            <div class="card-text">Travis Scott Astro World Type Beat</div>
-            <div class="card-text bpm">80bpm</div>
-            <div class="card-text price">$49.99</div> <!-- Price text -->
+    
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="video-container">
+                <iframe id="videoFrame" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
-
-    <!-- Card 3 -->
-    <div class="card" onclick="openModal('https://www.youtube.com/embed/4KVI8QbJfb0?si=uoKa_tS1FdFXM-OS')">
-        <img src="image3.jpg" alt="Beat Image">
-        <div class="text-container">
-            <div class="card-text">Kanye West x Ty Dolla $ign Vultures Type Beat</div>
-            <div class="card-text bpm">80bpm</div>
-            <div class="card-text price">$49.99</div> <!-- Price text -->
-        </div>
-    </div>
-</div>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div class="video-container">
-            <iframe id="videoFrame" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
-
-<script>
-    function openModal(embedUrl) {
-        var modal = document.getElementById("myModal");
-        var videoFrame = document.getElementById("videoFrame");
-        videoFrame.src = embedUrl;
-        modal.style.display = "block";
-    }
-
-    function closeModal() {
-        var modal = document.getElementById("myModal");
-        var videoFrame = document.getElementById("videoFrame");
-        videoFrame.src = ""; // Reset the video source
-        modal.style.display = "none";
-    }
-
-    // Close the modal if user clicks outside of it
-    window.onclick = function(event) {
-        var modal = document.getElementById("myModal");
-        if (event.target == modal) {
-            closeModal();
+    
+    <script>
+        function openModal(embedUrl) {
+            var modal = document.getElementById("myModal");
+            var videoFrame = document.getElementById("videoFrame");
+            videoFrame.src = embedUrl;
+            modal.style.display = "block";
         }
-    };
-</script>
-
-</body>
-</html>
+    
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            var videoFrame = document.getElementById("videoFrame");
+            videoFrame.src = "";
+            modal.style.display = "none";
+        }
+    
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        };
+    
+        function extractVideoID(url) {
+            let match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+            return match ? match[1] : null;
+        }
+    
+        function setThumbnails() {
+            document.querySelectorAll(".card").forEach((card, index) => {
+                let embedUrl = card.getAttribute("onclick").match(/'([^']+)'/)[1];
+                let videoID = extractVideoID(embedUrl);
+                if (videoID) {
+                    document.getElementById(`thumb${index + 1}`).src = `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`;
+                }
+            });
+        }
+    
+        document.addEventListener("DOMContentLoaded", setThumbnails);
+    </script>
